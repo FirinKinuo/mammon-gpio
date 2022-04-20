@@ -3,7 +3,7 @@ from setuptools import setup
 
 NAME = 'mammon_gpio'
 DESCRIPTION = 'GPIO module of the Mammon Unit for receiving data on deposits in money terminals'
-MODULES = ['mammon_gpio', 'mammon_gpio.db.utils', 'mammon_gpio.gpio', 'mammon_gpio.settings']
+MODULES = ['mammon_gpio', 'mammon_gpio.gpio', 'mammon_gpio.settings', 'mammon_gpio.db', 'mammon_gpio.db.utils']
 
 with open(file='VERSION', mode='r', encoding="UTF-8") as version_file:
     VERSION = version_file.read().replace("v", "")
