@@ -20,7 +20,17 @@ class MoneyGPIO(GPIO):
         self.data_pin = data_pin
         self.count_per_pulse = count_per_pulse
         self.timeout = timeout
+        self.currency = 0
 
     def init_pins(self):
         """Pin direction initialization"""
         OPi.GPIO.setup(self.data_pin, OPi.GPIO.IN)
+
+    @property
+    def money(self) -> float:
+        """Get the total amount of money received"""
+        return self.currency * self.count_per_pulse
+
+    def clear_money(self):
+        """Clear counted money"""
+        self.currency = 0

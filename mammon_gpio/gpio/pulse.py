@@ -12,7 +12,6 @@ class PulseMoney(MoneyGPIO):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        self.currency = 0
         self.first_pulse_timestamp = datetime.now().timestamp()
         self.last_pulse_timestamp = self.first_pulse_timestamp
 
