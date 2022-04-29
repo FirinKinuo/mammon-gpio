@@ -30,7 +30,8 @@ if __name__ == "__main__":
     pulse = PulseMoney(
         data_pin=config.DATA_PIN,
         board=config.BOARD,
-        timeout=config.DATA_TIMEOUT
+        timeout=config.DATA_TIMEOUT,
+        count_per_pulse=config.COUNT_PER_PULSE
     )
 
     pulse.init_gpio()
