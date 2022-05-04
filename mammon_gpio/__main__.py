@@ -21,7 +21,7 @@ def start_loop(money_gpio: MoneyGPIO):
 
             money_gpio.clear_money()
 
-        time.sleep(1)
+        time.sleep(0.015)
 
 
 if __name__ == "__main__":
