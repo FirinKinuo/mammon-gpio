@@ -32,7 +32,7 @@ class PulseMoney(MoneyGPIO):
     @property
     def is_timeout(self) -> bool:
         """Checking for data transfer timeout"""
-        return (datetime.now().timestamp() - self.first_pulse_timestamp) >= self.timeout
+        return (datetime.now().timestamp() - self.last_pulse_timestamp) >= self.timeout
 
     def _increase_currency(self):
         self.currency += 1
