@@ -1,4 +1,4 @@
-FROM python:3.9-slim as build-stage
+FROM python:3.9 as build-stage
 
 ENV PIP_DEFAULT_TIMEOUT=100 \
     PIP_DISABLE_PIP_VERSION_CHECK=1 \
