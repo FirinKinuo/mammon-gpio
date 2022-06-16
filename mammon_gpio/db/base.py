@@ -107,3 +107,9 @@ class BaseModel(Base):
             list[BaseModel] - List of records of this model
         """
         return session.query(cls).order_by(cls.id.desc()).offset(offset).limit(pool).all()
+
+    @decorators.with_insertion_lock
+    def delete(self):
+        """Delete entry from database"""
+        session.delete(self)
+        session.commit()
