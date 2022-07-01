@@ -3,11 +3,11 @@ import time
 from datetime import datetime
 from logging import getLogger
 
-import OPi.GPIO
 
 from mammon_gpio.settings import config
 from mammon_gpio.db.replenishment import ReplenishmentHistory
 from mammon_gpio.gpio.pulse import PulseMoney, MoneyGPIO
+import OPi.GPIO
 
 log = getLogger("main")
 
@@ -33,6 +33,7 @@ def start_loop(money_gpio: MoneyGPIO):
 
             # Signal surge protection when the wash post is turned on
             if clear_if_replenishment_repeated(datetime_=replenishment_datetime):
+                money_gpio.clear_money()
                 continue
 
             ReplenishmentHistory.set(datetime=replenishment_datetime, currency=money_gpio.money)
