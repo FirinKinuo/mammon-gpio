@@ -16,8 +16,12 @@ def start_loop(money_gpio: MoneyGPIO):
     while True:
         if money_gpio.money and pulse.is_timeout:
             log.info(f"Money received: {money_gpio.money}")
-            replenishment_datetime = datetime.now()
+            if money_gpio.money < config.MINIMAL_MONEY:
+                log.info("Transferred money less than minimal")
+                money_gpio.clear_money()
+                continue
 
+            replenishment_datetime = datetime.now()
             ReplenishmentHistory.set(datetime=replenishment_datetime, currency=money_gpio.money)
 
             money_gpio.clear_money()

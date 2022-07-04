@@ -16,6 +16,7 @@ LOG_LEVEL = logging.getLevelName((environ.get('LOG_LEVEL') if not DEBUG else 'de
 DATA_PIN = int(environ.get('DATA_PIN'))
 DATA_TIMEOUT = int(environ.get('DATA_TIMEOUT')) / 1000  # Converting timeout from milliseconds to seconds
 COUNT_PER_PULSE = float(environ.get('COUNT_PER_PULSE') or 1.0)
+MINIMAL_MONEY = int(environ.get('MINIMAL_MONEY') or 1)
 SQLITE_ENGINE = f"sqlite:////data/mammon.sqlite3"
 
 BOARD_MANUFACTURER = environ.get('BOARD_MANUFACTURER').lower()
